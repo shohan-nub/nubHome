@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: nub-home
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: nub-home
+      POSTGRES_PASSWORD: nubhome123
+      POSTGRES_DB: nub-home
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - nub_home_postgres_data:/var/lib/postgresql/data
+
+  
+volumes:
+  nub_home_postgres_data:
+    
+

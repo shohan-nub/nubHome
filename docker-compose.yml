@@ -5,9 +5,9 @@ services:
     restart: unless-stopped
 
     environment:
-      POSTGRES_USER: nub-home
+      POSTGRES_USER: nub_home
       POSTGRES_PASSWORD: nubhome123
-      POSTGRES_DB: nub-home
+      POSTGRES_DB: nub_home
 
     ports:
       - "5432:5432"

@@ -8,6 +8,7 @@ import {
   timestamp,
 } from "drizzle-orm/pg-core";
 import { booking } from "./booking";
+import { relations } from "drizzle-orm";
 
 
 export const paymentMethod = pgEnum("payment_method", [
@@ -41,3 +42,10 @@ export const payments = pgTable("payments", {
 
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
+
+export const paymentRelation=relations(payments,({one,many})=>({
+    booking:one(booking,{
+        fields:[payments.id],
+        references:[booking.id]
+    })
+}))
